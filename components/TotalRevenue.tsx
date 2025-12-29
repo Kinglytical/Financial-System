@@ -11,15 +11,14 @@ import {
 } from "recharts";
 import { RechartsDevtools } from "@recharts/devtools";
 
-
 // #region Sample data
 
 
 interface dataTotal {
   name: String,
-  Payroll: Number,
-  Operational: Number,
-  Marketing:Number
+  Paid: Number,
+  Outstanding: Number,
+  Overdue:Number
 }
 
 interface dataTotalProps {
@@ -27,7 +26,7 @@ interface dataTotalProps {
 }
 
 // #endregion
-const TotalExpense = ({items} : dataTotalProps) => {
+const TotalRevenue = ({items} : dataTotalProps) => {
   return (
     <div className="bg-[#AEDEFC] p-4 rounded-xl">
       <h1 className="text-sm text-[#1F2937] font-bold mb-4">Total Expense</h1>
@@ -52,16 +51,16 @@ const TotalExpense = ({items} : dataTotalProps) => {
         <YAxis width="auto" axisLine={false} tick={{ fontSize: 10, fill: "#475569"  }} tickLine={false}/>
         <Tooltip />
         <Legend wrapperStyle={{ fontSize: 9 }}/>
-        <Bar dataKey="Payroll" stackId="a" fill="#3F9AAE" barSize={20} radius={0} />
+        <Bar dataKey="Paid" stackId="a" fill="#3F9AAE" barSize={20} radius={0} />
         <Bar
-          dataKey="Operational"
+          dataKey="Outstanding"
           stackId="a"
           fill="#79C9C5"
           barSize={20}
           radius={0}
         />
         <Bar
-          dataKey="Marketing"
+          dataKey="Overdue"
           stackId="a"
           fill="#F96E5B"
           barSize={20}
@@ -73,4 +72,4 @@ const TotalExpense = ({items} : dataTotalProps) => {
   );
 };
 
-export default TotalExpense;
+export default TotalRevenue;

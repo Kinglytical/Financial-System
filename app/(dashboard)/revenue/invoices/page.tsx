@@ -1,7 +1,36 @@
-const Invoices = () => {
-    return (
-        <div><h1>masih deployment</h1></div>
-    )
+"use client"
+
+import RevenueForm from "@/components/revenuForm";
+import { useState } from "react";
+
+const dataForm = [
+    {
+        id:"expense Setup",
+        Tab : "expense",
+        components: RevenueForm
+    },
+]
+
+const FormPage = () => {
+    const [activeTab, setActiveTab] = useState("expense")
+  return (
+	<div className="m-5">
+        {/* <h1>Form Expenses Report</h1> */}
+        <div className="flex gap-5">
+            {/* Right */}
+            <div className="w-full">
+            {dataForm.map((u) => {
+                const Components = u.components
+                return (
+                    <div className="" key={u.Tab}>
+                        {activeTab === (u.Tab) && <Components />}
+                    </div>
+                )
+            })}
+            </div>
+        </div>
+    </div>
+  );
 }
 
-export default Invoices
+export default FormPage

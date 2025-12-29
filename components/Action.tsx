@@ -1,37 +1,25 @@
-const Action = [
-  {
-    id: "task1",
-    task: "Pending Payments",
-    icon: "⚠️",
-    amount: 3,
-    link: "expenses/form",
-  },
-  {
-    id: "task2",
-    task: "Rejected",
-    icon: "📌",
-    amount: 1,
-    link: "expenses/form",
-  },
-  {
-    id: "task3",
-    task: "Invoice",
-    icon: "⏰",
-    amount: 1,
-    link: "expenses/form",
-  },
-];
+interface ActionItem {
+  id: string;
+  task: string;
+  icon: string;
+  amount: number;
+  link: string;
+}
 
-const ActionCard = () => {
+interface ActionCardProps {
+  items: ActionItem[];
+}
+
+const ActionCard = ({ items }: ActionCardProps) => {
   return (
     <div className="bg-[#EFECE3] p-4 mt-2 rounded-xl">
       <h1 className="font-bold mb-4">Action Required</h1>
 
       <div className="flex flex-col gap-3">
-        {Action.length === 0 ? (
+        {items.length === 0 ? (
           <p className="text-xs text-gray-500">No action required 🎉</p>
         ) : (
-          Action.map((i) => (
+          items.map((i) => (
             <div
               key={i.id}
               className="flex items-center justify-between bg-white p-3 rounded-xl"
@@ -61,4 +49,4 @@ const ActionCard = () => {
   );
 };
 
-export default ActionCard
+export default ActionCard;

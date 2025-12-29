@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -122,4 +123,15 @@
   body {
     @apply bg-background text-foreground;
   }
+  
 }
+
+.react-calendar {
+    width: 100% !important;
+    border: none !important;
+    border-radius: 5px !important;
+}
+
+
+
+
